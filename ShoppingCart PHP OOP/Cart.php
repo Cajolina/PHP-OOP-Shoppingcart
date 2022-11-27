@@ -6,7 +6,10 @@ class Cart
     private array $items = [];
 
     //TODO Skriv getter för items
-
+    public function getItems()
+    {
+        return $this->items; //eller?????
+    }
     /*
      Skall lägga till en produkt i kundvagnen genom att
      skapa ett nytt cartItem och lägga till i $items array.
@@ -17,12 +20,14 @@ class Cart
      */
     public function addProduct($product)
     {
+        array_push($items, $product); ///rätt?
     }
 
 
     //Skall ta bort en produkt ur kundvagnen (använd unset())
     public function removeProduct($product)
     {
+        unset($product); //eller?
     }
 
     //Skall returnera totala antalet produkter i kundvagnen
