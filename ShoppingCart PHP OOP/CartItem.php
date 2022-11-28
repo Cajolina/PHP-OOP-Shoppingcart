@@ -13,9 +13,14 @@ class CartItem
         $this->quantity = $quantity;
     }
     // TODO Skriv getters för alla properties
-    public function getProductQuantity()
+    public function getQuantity()
     {
-        return $this->product . " " . $this->quantity;
+        return $this->quantity;
+    }
+
+    public function getProduct()
+    {
+        return $this->product;
     }
 
     //VG: Skall utöka antalet på ett cartItem med 1. 
