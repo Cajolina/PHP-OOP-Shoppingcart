@@ -9,7 +9,7 @@ require_once "CartItem.php";
 $product1 = new Product(1, "iPhone 11", 2500, 10);
 $product2 = new Product(2, "M2 SSD", 400, 3);
 $product3 = new Product(3, "Samsung Galaxy S20", 3200, 10);
-/*
+
 //Instansiera Cart
 $cart = new Cart();
 //Lägger till 3 produkter i kundvagnen

@@ -18,11 +18,25 @@ class Product
         $this->price = $price;
         $this->inStock = $inStock;
     }
-    // TODO Skriv getters för alla properties
+    // TODO Skriv getters för att hämta en viss prperty. är private måste gå igenom en funktion. En för varje. Gör bara getters för de som behövs. kanske plussar ihop å så. kontroll av vad vi exponerar utanför klassen, vad ska vara tillgängligt. 
 
-    public function getProduct()
+    public function getId()
     {
-        return $this->id . " " . $this->title . " " . $this->price . " " . $this->inStock;
+        return $this->id;
+    }
+
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    public function getPrice()
+    {
+        return $this->price;
+    }
+    public function getInStock()
+    {
+        return $this->inStock;
     }
 };
 
