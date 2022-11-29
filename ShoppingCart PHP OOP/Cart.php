@@ -19,12 +19,19 @@ class Cart
      VG: Om produkten redan finns i kundvagnen
      skall istället quantity på cartitem ökas.
      */
-    public function addProduct($product) //cartiteam, product och hur många av dem
+    public function addProduct($product, $quantity) //cartiteam, product och hur många av dem
     {
+        if (isset($this->items[$product->getId()])) {
+            $this->items[$product->getId()]->increaseQuantity($quantity);
+        } else {
+            $cartItem = new CartItem($product, $quantity);
+            $this->items[$product->getId()] = $cartItem;
+        }
 
-        $cartItem = new CartItem($product, 1); //quantity, labborera 
-        $this->items[$product->getId()] = $cartItem;
         return $cartItem;
+        /*$cartItem = new CartItem($product, 1); //quantity, labborera 
+        $this->items[$product->getId()] = $cartItem;
+        return $cartItem;*/
     }
 
     //Skall ta bort en produkt ur kundvagnen (använd unset())
@@ -40,8 +47,8 @@ class Cart
     { //som techstore, fast kvantitet och under pris
         $totalOuntity = 0;
         //loop gå igenom alla cart items
-        foreach($this->items as $item) {
-            $totalOuntity += $item->getQuantity()
+        foreach ($this->items as $item) {
+            $totalOuntity += $item->getQuantity();
         }
         return $totalOuntity;
     }
@@ -52,14 +59,14 @@ class Cart
     {
         $totalSum = 0;
         //loop gå igenom alla cart items
-        foreach($this->items as $item) {//loopar igenom cartitems, hur kommer vi åt grejerna? hur pratar de ihop? 
+        foreach ($this->items as $item) { //loopar igenom cartitems, hur kommer vi åt grejerna? hur pratar de ihop? 
             $totalSum += $item->getQuantity() * $item->getProduct()->getPrice(); //getProduct för att kunna getta Price
         }
         return $totalSum;
     }
-        //tänk på om vi siktar på g kan vi anta att varje product ligger med en . loop det här plus det här, men för vg 2 för denna kanske . ränka med det 2 grr
-    }
+    //tänk på om vi siktar på g kan vi anta att varje product ligger med en . loop det här plus det här, men för vg 2 för denna kanske . ränka med det 2 grr
 }
+
 
 
 
