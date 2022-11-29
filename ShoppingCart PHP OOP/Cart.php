@@ -23,7 +23,7 @@ class Cart
     {
       
         $cartItem = new cartItem($product, 1); //quantity, labborera 
-
+    
         $this->items[$product->getId()] = $cartItem;
         return $cartItem;
     }
@@ -31,19 +31,19 @@ class Cart
     //Skall ta bort en produkt ur kundvagnen (använd unset())
     public function removeProduct($product)
     {
-        unset($product); //eller?
+        unset($this->items[$product->getId()]); //eller? sätter en funktion för att ta bort, typ så. vilken av cartitems ligger min product i, plocka ut genom att ha idt för den producten. för vg 3-4 rader till. ass som js object
     }
 
     //Skall returnera totala antalet produkter i kundvagnen
     //OBS: Ej antalet unika produkter
     public function getTotalQuantity()
-    {
+    {//som techstore, fast kvantitet och under pris
     }
 
     //Skall räkna ihop totalsumman för alla produkter i kundvagnen
     //VG: Tänk på att ett cartitem kan ha olika quantity
     public function getTotalSum()
-    {
+    { //tänk på om vi siktar på g kan vi anta att varje product ligger med en . loop det här plus det här, men för vg 2 för denna kanske . ränka med det 2 grr
     }
 }
 
