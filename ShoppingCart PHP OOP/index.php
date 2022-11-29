@@ -34,6 +34,7 @@ echo $cart->getTotalSum() . "<br>"; // Detta skall skriva ut 6100
 //Lägger till 2 till av produkten cartItem2 i kundvagnen
 $cartItem2->increaseQuantity();
 $cartItem2->increaseQuantity();
+
 //Skriver ut antalet produkter i kundvagnen efter utökat antal
 echo "<h3>Antal produkter i kundvagnen efter utökat antal: </h3>";
 echo $cart->getTotalQuantity() . "<br>"; // Detta skall skriva ut 5
@@ -73,7 +74,7 @@ Antal: 1
 
 
 //Kommentera in nedan kod om du satsar på VG
-// echo "<h3>Namn och kvantitet på alla items i kundvagnen: </h3>";
+echo "<h3>Namn och kvantitet på alla items i kundvagnen: </h3>";
 
 foreach ($cart->getItems() as $item) {
     $cartItemName = $item->getProduct()->getTitle();
@@ -85,5 +86,5 @@ foreach ($cart->getItems() as $item) {
 }
 
 
-// echo "<h3>Lägger till en fjärde M2 SSD fast det bara finns 3 i lager: </h3>";
+echo "<h3>Lägger till en fjärde M2 SSD fast det bara finns 3 i lager: </h3>";
 $cartItem2->increaseQuantity(); //Skall skriva ut "Kan inte lägga till. Slut i lager"
