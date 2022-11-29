@@ -50,8 +50,13 @@ class Cart
     //VG: Tänk på att ett cartitem kan ha olika quantity
     public function getTotalSum()
     {
-        $totalSum = $this->CartItem->getQuantity() * $this->product->getPrice();
+        $totalSum = 0;
+        //loop gå igenom alla cart items
+        foreach($this->items as $item) {//loopar igenom cartitems, hur kommer vi åt grejerna? hur pratar de ihop? 
+            $totalSum += $item->getQuantity() * $item->getProduct()->getPrice(); //getProduct för att kunna getta Price
+        }
         return $totalSum;
+    }
         //tänk på om vi siktar på g kan vi anta att varje product ligger med en . loop det här plus det här, men för vg 2 för denna kanske . ränka med det 2 grr
     }
 }
