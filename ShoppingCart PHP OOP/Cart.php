@@ -23,12 +23,12 @@ class Cart
     {
         if (isset($this->items[$product->getId()])) {
             $this->items[$product->getId()]->increaseQuantity();
+            return $this->items[$product->getId()];
         } else {
             $cartItem = new CartItem($product, $quantity);
             $this->items[$product->getId()] = $cartItem;
+            return $cartItem;
         }
-
-        return $cartItem;
     }
 
     //Skall ta bort en produkt ur kundvagnen (använd unset())
